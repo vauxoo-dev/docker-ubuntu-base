@@ -56,6 +56,10 @@ PIP_DPKG_BUILD_DEPENDS="libpq-dev \
                         libssl-dev \
                         gcc"
 
+# PPA
+VIM_PPA_REPO="deb http://ppa.launchpad.net/jonathonf/vim/ubuntu trusty main"
+VIM_PPA_KEY="http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x8CF63AD3F06FC659"
+
 # Dpkg, please always install configurations from upstream, be fast
 # and no questions asked.
 {
@@ -94,6 +98,9 @@ add_custom_aptsource "${PSQL_UPSTREAM_REPO}" "${PSQL_UPSTREAM_KEY}"
 
 # Add python repo so we can use the latest 2.7 version
 add_custom_aptsource "${PYTHON_PPA_REPO}" "${PYTHON_PPA_KEY}"
+
+# Add vim upgrade
+add_custom_aptsource "${VIM_PPA_REPO}" "${VIM_PPA_KEY}"
 
 # Release the apt monster!
 apt-get update
